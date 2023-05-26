@@ -1,28 +1,168 @@
 :root {
   /*Primary colors*/
-
   --dark-cyan: hsl(158, 36%, 37%);
   --cream: hsl(30, 38%, 92%);
 
   /*Neutral color*/
-
   --very-dark-blue: hsl(212, 21%, 14%);
   --dark-grayish-blue: hsl(228, 12%, 48%);
   --white: hsl(0, 0%, 100%);
 
-  /*Typography*/
+  /*Font*/
+
+  --font-base: "Montserrat", sans-serif;
+  --font-title: "Fraunces", serif;
+  font-size: 32px;
+
+  --fw--regular: 500;
+  --fw--bold: 700;
 
   --size-paragraph: 14px;
 }
 
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
 * {
-  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
-/* - Mobile: 375px */
-/* - Desktop: 1440px */
-/*Family: [Montserrat](https://fonts.google.com/specimen/Montserrat)*/
-/*Weights: 500, 700*/
+/* general styling */
 
-/*font-family: 'Fraunces', serif;*/
-/*Weights: 700*/
+body {
+  font-family: var(--font-base);
+  font-weight: var(--fw--regular);
+  font-size: var(--size-paragraph);
+  color: var(--dark-grayish-blue);
+  background-color: var(--cream);
+}
+
+main {
+  display: grid;
+  place-content: center;
+  margin: 16px;
+}
+
+/* product style */
+.product {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+
+  --product-padding: 24px;
+  --info-spacing: 16px;
+}
+
+.product__info {
+  display: grid;
+  gap: var(--info-spacing);
+  padding: var(--product-padding);
+}
+.product__category {
+  font-size: 13.2px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.product__title {
+  font-family: var(--font-title);
+  font-size: 32px;
+  color: var(--very-dark-blue);
+  line-height: 1;
+}
+
+.product__prices {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.product__price {
+  font-size: 32px;
+  font-family: var(--font-title);
+  color: var(--dark-cyan);
+  align-items: center;
+}
+
+.product__original-price {
+  text-decoration: line-through;
+}
+
+.cart-button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  align-content: center;
+
+  border: 0;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  font-weight: var(--fw--bold);
+}
+
+.cart-button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
