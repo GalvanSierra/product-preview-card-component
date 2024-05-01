@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* Colors */
+
+  --dark-cyan: hsl(158, 36%, 37%);
+  --cream: hsl(30, 38%, 92%);
+  --very-dark-blue: hsl(212, 21%, 14%);
+  --dark-grayish-blue: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --font-title: "Fraunces", serif;
+  --font-body: "Montserrat", serif;
+  --fs-normal: 14px;
+
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  color: var(--dark-grayish-blue);
+  background-color: var(--cream);
+}
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  /* padding: 1rem; */
+}
+
+.product {
+  min-width: 340px;
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+
+  display: grid;
+}
+
+@media (width>600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+  }
+}
+.product__content {
+  padding: 1.5rem;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.product__category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  /* font-weight: var(--fw-bold); */
+}
+
+.product__title,
+.product__price {
+  font-family: var(--font-title);
+}
+
+.product__title {
+  color: var(--very-dark-blue);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: var(--fw-bold);
+}
+
+.product__text {
+  line-height: 1.5;
+}
+
+.product__prices {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.product__price {
+  color: var(--dark-cyan);
+  font-weight: var(--fw-bold);
+  font-size: 30px;
+}
+
+.product__price--old {
+  text-decoration: line-through;
+}
+
+.button {
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  gap: 0.75rem;
+}
+
+.button::before {
+  content: url(./images/icon-cart.svg);
+  width: 15px;
+  height: 16px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #1a4130;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
